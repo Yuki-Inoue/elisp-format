@@ -395,6 +395,8 @@ The line beginning match keywords in this list won't be newline."
   :group 'elisp-format)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Interactive Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;###autoload
 (defun elisp-format-region (&optional start end)
   "Format current region or buffer.
 This function will format region from START to END.
@@ -476,18 +478,21 @@ Or try to format `defun' around point."
       (message "Format %s completed (%ss)." (buffer-name)
                (/ (- (elisp-format-get-current-time) start-time) 1000000)))))
 
+;;;###autoload
 (defun elisp-format-buffer ()
   "Format current buffer."
   (interactive)
   (elisp-format-region (point-min)
                        (point-max)))
 
+;;;###autoload
 (defun elisp-format-file (filename)
   "Format file with FILENAME."
   (interactive "fFile name: ")
   (with-current-buffer (find-file-noselect filename)
     (elisp-format-buffer)))
 
+;;;###autoload
 (defun elisp-format-file-batch (filename &optional surpress-popup-window)
   "Format elisp FILENAME.
 But instead in `batch-mode'.
@@ -502,6 +507,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
                                (find-library-name "elisp-format") filename)
                               surpress-popup-window))
 
+;;;###autoload
 (defun elisp-format-directory (dir)
   "Format recursive elisp files under DIR."
   (interactive "DDirectory: ")
@@ -518,6 +524,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
           (if (string-match suffix (file-name-nondirectory file))
               (elisp-format-file file)))))))
 
+;;;###autoload
 (defun elisp-format-directory-batch (dir &optional surpress-popup-window)
   "Format recursive elisp files under DIR.
 But instead in `batch-mode'.
@@ -532,6 +539,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
                                (find-library-name "elisp-format") dir)
                               surpress-popup-window))
 
+;;;###autoload
 (defun elisp-format-dired-mark-files ()
   "Format dired mark files."
   (interactive)
@@ -540,6 +548,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
       (dolist (filename (dired-get-marked-files))
         (elisp-format-file filename))))
 
+;;;###autoload
 (defun elisp-format-library (library)
   "Format LIBRARY."
   (interactive (list
