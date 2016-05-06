@@ -11,7 +11,7 @@
 ;; Version: 0.5.8
 ;; Last-Updated: 2016-05-06
 ;;           By: Yuki Inoue
-;; URL: http://www.emacswiki.org/emacs/download/elisp-format.el
+;; URL: https://github.com/Yuki-Inoue/elisp-format
 ;; Keywords:
 ;; Compatibility: GNU Emacs 22 ~
 ;;
@@ -148,6 +148,7 @@
 ;;
 ;; 2016/05/06 -- Yuki Inoue
 ;;      * Add autoload magic comments.
+;;      * Change URL.
 ;;
 ;; 2009/03/10
 ;;      * Fix the bug of
