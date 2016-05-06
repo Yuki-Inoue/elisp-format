@@ -3,15 +3,17 @@
 ;; Filename: elisp-format.el
 ;; Description: Format elisp code
 ;; Author: Andy Stewart lazycat.manatee@gmail.com
-;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
-;; Copyright (C) 2009 Andy Stewart, all rights reserved.
+;; Maintainer: Yuki Inoue inouetakahiroki _at_ gmail.com
+;; Copyright (C) 2009 Andy Stewart, all rights reserved,
+;; modified by,
+;; Copyright (C) 2016 Yuki Inoue.
 ;; Created: 2009-01-20 16:31:45
-;; Version: 0.5.7
-;; Last-Updated: 2009-03-10 02:05:45
-;;           By: Andy Stewart
+;; Version: 0.5.8
+;; Last-Updated: 2016-05-06
+;;           By: Yuki Inoue
 ;; URL: http://www.emacswiki.org/emacs/download/elisp-format.el
 ;; Keywords:
-;; Compatibility: GNU Emacs 22 ~ 23
+;; Compatibility: GNU Emacs 22 ~
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -143,6 +145,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2016/05/06 -- Yuki Inoue
+;;      * Add autoload magic comments.
 ;;
 ;; 2009/03/10
 ;;      * Fix the bug of
@@ -395,6 +400,8 @@ The line beginning match keywords in this list won't be newline."
   :group 'elisp-format)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Interactive Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;###autoload
 (defun elisp-format-region (&optional start end)
   "Format current region or buffer.
 This function will format region from START to END.
@@ -476,18 +483,21 @@ Or try to format `defun' around point."
       (message "Format %s completed (%ss)." (buffer-name)
                (/ (- (elisp-format-get-current-time) start-time) 1000000)))))
 
+;;;###autoload
 (defun elisp-format-buffer ()
   "Format current buffer."
   (interactive)
   (elisp-format-region (point-min)
                        (point-max)))
 
+;;;###autoload
 (defun elisp-format-file (filename)
   "Format file with FILENAME."
   (interactive "fFile name: ")
   (with-current-buffer (find-file-noselect filename)
     (elisp-format-buffer)))
 
+;;;###autoload
 (defun elisp-format-file-batch (filename &optional surpress-popup-window)
   "Format elisp FILENAME.
 But instead in `batch-mode'.
@@ -502,6 +512,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
                                (find-library-name "elisp-format") filename)
                               surpress-popup-window))
 
+;;;###autoload
 (defun elisp-format-directory (dir)
   "Format recursive elisp files under DIR."
   (interactive "DDirectory: ")
@@ -518,6 +529,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
           (if (string-match suffix (file-name-nondirectory file))
               (elisp-format-file file)))))))
 
+;;;###autoload
 (defun elisp-format-directory-batch (dir &optional surpress-popup-window)
   "Format recursive elisp files under DIR.
 But instead in `batch-mode'.
@@ -532,6 +544,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
                                (find-library-name "elisp-format") dir)
                               surpress-popup-window))
 
+;;;###autoload
 (defun elisp-format-dired-mark-files ()
   "Format dired mark files."
   (interactive)
@@ -540,6 +553,7 @@ If SURPRESS-POPUP-WINDOW is non-nil, don't show output window."
       (dolist (filename (dired-get-marked-files))
         (elisp-format-file filename))))
 
+;;;###autoload
 (defun elisp-format-library (library)
   "Format LIBRARY."
   (interactive (list
