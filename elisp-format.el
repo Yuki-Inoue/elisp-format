@@ -3,15 +3,17 @@
 ;; Filename: elisp-format.el
 ;; Description: Format elisp code
 ;; Author: Andy Stewart lazycat.manatee@gmail.com
-;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
-;; Copyright (C) 2009 Andy Stewart, all rights reserved.
+;; Maintainer: Yuki Inoue inouetakahiroki _at_ gmail.com
+;; Copyright (C) 2009 Andy Stewart, all rights reserved,
+;; modified by,
+;; Copyright (C) 2016 Yuki Inoue.
 ;; Created: 2009-01-20 16:31:45
-;; Version: 0.5.7
-;; Last-Updated: 2009-03-10 02:05:45
-;;           By: Andy Stewart
+;; Version: 0.5.8
+;; Last-Updated: 2016-05-06
+;;           By: Yuki Inoue
 ;; URL: http://www.emacswiki.org/emacs/download/elisp-format.el
 ;; Keywords:
-;; Compatibility: GNU Emacs 22 ~ 23
+;; Compatibility: GNU Emacs 22 ~
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -143,6 +145,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2016/05/06 -- Yuki Inoue
+;;      * Add autoload magic comments.
 ;;
 ;; 2009/03/10
 ;;      * Fix the bug of
