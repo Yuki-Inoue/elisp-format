@@ -1,16 +1,17 @@
 ;;; elisp-format.el --- Format elisp code
 
+;; Copyright (C) 2016 Yuki Inoue
+;; based on code by Andy Stewart:
+;;     Copyright (C) 2009 Andy Stewart
+;;     https://www.emacswiki.org/emacs/elisp-format.el
+
+
 ;; Filename: elisp-format.el
 ;; Description: Format elisp code
 ;; Author: Andy Stewart lazycat.manatee@gmail.com
 ;; Maintainer: Yuki Inoue inouetakahiroki _at_ gmail.com
-;; Copyright (C) 2009 Andy Stewart, all rights reserved,
-;; modified by,
-;; Copyright (C) 2016 Yuki Inoue.
 ;; Created: 2009-01-20 16:31:45
 ;; Version: 0.5.8
-;; Last-Updated: 2016-05-06
-;;           By: Yuki Inoue
 ;; URL: https://github.com/Yuki-Inoue/elisp-format
 ;; Keywords:
 ;; Compatibility: GNU Emacs 22 ~
@@ -146,9 +147,8 @@
 
 ;;; Change log:
 ;;
-;; 2016/05/06 -- Yuki Inoue
-;;      * Add autoload magic comments.
-;;      * Change URL.
+;; 2016/05/06 and later
+;;      * Refer https://github.com/Yuki-Inoue/elisp-format
 ;;
 ;; 2009/03/10
 ;;      * Fix the bug of
